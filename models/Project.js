@@ -12,7 +12,9 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     project_status: {
-      type: DataTypes.DECIMAL(2, 2),
+      type: DataTypes.STRING,
+      // type: DataTypes.DECIMAL(2, 2),
+
       allowNull: true,
     },
   }, 
@@ -23,8 +25,6 @@ module.exports = function (sequelize, DataTypes) {
   Project.associate = function(models){
   // Each Project belongs to A Project Manager
   Project.belongsTo(models.User, { as: "ProjectManager" }),
-  
-  // models.Project.hasMany(models.ProjectMembers),
   
   // Each Project can have many Tasks
   Project.hasMany(models.Task, {
