@@ -27,6 +27,35 @@ $(document).ready(function () {
       })
   }
 
+  $("#blog-submit-btn").on("click", function (event) {
+    event.preventDefault();
+    console.log("Inside submit button");
+  
+    var project_name = $("textarea#blogText").val().trim();
+    var project_status = $("textarea#blogTitle").val().trim();
+    var userId=document.getElementById('loginUserName').value;
+    console.log(userId, "userId")
+    var newBlog = {
+        userId: userId,
+        project_name: project_name,
+        project_status: project_status
+    }
 
+    // Post to blog table
+    $.ajax("/api/new/blog", {
+        type: "POST",
+        data: newBlog
+    }).then(function (result) {
+        console.log("Inserted into Blog Table");
+
+        // Update user table
+        $.ajax("/api/user/update/" + userId, {
+            type: "PUT"
+        }).then(function () {
+            console.log("Updated value to user table")
+        })
+    })
+    location.reload();
+})
 })
    

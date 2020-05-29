@@ -39,13 +39,35 @@ router.post("/api/newuser", function (req, res) {
       password: req.body.password,
       first_name: req.body.firstName,
       last_name:req.body.lastName,
-      email:req.body.email
+      email:req.body.email,
+      manager:false
   }).then(function (result) {
       console.log("Inserted into user table");
   }).catch(function (err) {
       console.log(err);
   })
 })
+<<<<<<< HEAD
+=======
+  // Post to blog table
+  router.put("/api/user/update/:id", function (req, res) {
+    var id = req.params.id;
+    console.log("Inside update function of user table");
+    console.log(id);
+
+    db.User.update({
+        manager: 1
+    }, {
+        where: {
+            userName: req.params.id
+        }
+    }).then(function (result) {
+        console.log("Updated user table");
+        res.json(result);
+    })
+})
+
+>>>>>>> 0521007a46c0c5e00fef005fa5038519b8300b67
 
 // GET route for getting all of the projects
 router.get("/api/projects", function(req, res) {

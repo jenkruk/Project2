@@ -80,7 +80,6 @@
     <!-- BODY  -->
     <div class="container bodyContainer">  
 
- 
   <!-- MODAL CONTENT -->
   <!-- SIGN UP MODAL -->
   <div id="modal-signup" class="modal">
@@ -115,6 +114,7 @@
                 <input type="text" id="signup-role" required />
                 <label for="signup-role">Role</label>
             </div>
+  
             <button class="btn yellow darken-2 z-depth-0">Sign up</button>
         </form>
     </div>
@@ -125,7 +125,8 @@
       <!-- ADMIN ACTIONS -->
  <form class="center-align admin-actions admin" style="margin: 40px auto; max-width: 300px; display:none;">
   <input type="email" placeholder="User email" id="admin-email" required />
-  <button id="makeAdmin" class="btn-small yellow darken-2 z-depth-0">Make admin</button>
+  <input type="text" placeholder="User Id" id="admin-id" required />
+  <button id="makeAdmin" class="btn-small yellow darken-2 z-depth-0">Make admin/manager</button>
   <button id="removeAdmin" class="btn-small yellow darken-2 z-depth-0">Remove admin</button>
 </form>
     </div>
@@ -200,6 +201,8 @@
                   <div class="form-group">
                       <label for="exampleInputEmail1">USERNAME</label>
                       <input type="text" class="form-control" id="loginUserName">
+                      <label for="exampleInputEmail1">User Email</label>
+                      <input type="text" class="form-control" id="loginUserEmail">
                   </div>
 
                   <button type="submit" class="btn btn-primary" id="login-btn">View</button>
