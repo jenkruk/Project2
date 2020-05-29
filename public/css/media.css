@@ -29,7 +29,7 @@
 
     #slideshow,
     .slide {
-        width: 300px;
+        /* width: 300px; */
     }
 
     .bodyContainer {
@@ -49,12 +49,12 @@
     }
 
     #slideshow {
-        padding-top: 1vh;
-        height: 350px;
+        /* padding-top: 1vh; */
+        /* height: 350px; */
     }
 
     .slide {
-        height: 350px;
+        /* height: 350px; */
     }
 
     .review1 {
@@ -73,7 +73,7 @@
   
   @media (max-height: 568px) {
   #slideshow {
-      display: none;
+      /* display: none; */
   }
 
   .title {

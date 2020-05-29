@@ -34,7 +34,7 @@ password: {
     manager: {
       type: DataTypes.BOOLEAN,
       default: false,
-      allowNull: false,
+      allowNull: true,
     },
      email: {
        type: DataTypes.STRING,

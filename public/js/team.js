@@ -16,8 +16,8 @@ $(document).ready(function(){
     $("#add-task-form").show();
 });
 
-  $(".plus").on("click",function(e){
-    
+  $(".plus").on("click",function(event){
+    event.preventDefault();
     if($(".txtb").val() != "")
     {
       var task = $("<li class='task'></li>").text($(".txtb").val().trim());
@@ -35,6 +35,23 @@ $(document).ready(function(){
     }
     $("#add-task-form").hide();
     $("#openForm").show();
+
+    // Make a newTask object
+    var newTask = {
+      task_name: task,
+      status: ("#waiting")
+    }
+
+  // Send an AJAX POST-request with jQuery
+    $.post("/api/new", newTask)
+    // On success, run the following code
+    .then(function(data){
+      //log the data we found
+      console.log(data);
+    });
+
+
+
   });
 
 
