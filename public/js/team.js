@@ -39,18 +39,16 @@ $(document).ready(function(){
     // Make a newTask object
     var newTask = {
       task_name: task,
-      status: ("#waiting")
+      status: ("waiting")
     }
 
   // Send an AJAX POST-request with jQuery
-    $.post("/api/new", newTask)
+    $.post("/api/tasks/", newTask)
     // On success, run the following code
     .then(function(data){
       //log the data we found
       console.log(data);
     });
-
-
 
   });
 

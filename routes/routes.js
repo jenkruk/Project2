@@ -12,6 +12,7 @@ var router = express.Router();
 // Require the models
 var db = require("../models");
 var path = require("path");
+
 // Routes
 router.get("/", function (req, res) {
   // console.log("Inside root route");
@@ -45,6 +46,7 @@ router.post("/api/newuser", function (req, res) {
       console.log(err);
   })
 })
+
 // GET route for getting all of the projects
 router.get("/api/projects", function(req, res) {
   // findAll returns all entries for a table when used with no options
@@ -53,15 +55,6 @@ router.get("/api/projects", function(req, res) {
     res.json(result);
   });
 });
-
-// GET route for getting all of the tasks
-router.get("/api/tasks", function(req, res) {
-    // findAll returns all entries for a table when used with no options
-    db.Task.findAll({raw:true}).then(function(result) {
-      // We have access to the team as an argument inside of the callback function
-      res.json(result);
-    });
-  });
 
   // GET route for getting all of the users
 router.get("/api/users", function(req, res) {

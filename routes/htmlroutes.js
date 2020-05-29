@@ -19,8 +19,16 @@ htmlRoutes.get("/manager", function(req,res){
     res.sendFile(path.join(__dirname,"../html/manager.html"))
 });
 
+htmlRoutes.get("/team", function(req,res){
+    res.sendFile(path.join(__dirname,"../html/team.html"))
+});
+
 htmlRoutes.get("/teampage", function(req,res){
     res.sendFile(path.join(__dirname,"../html/team.html"))
+});
+
+htmlRoutes.get("/*", function(req,res){
+    res.sendFile(path.join(__dirname,"../html/index.html"))
 });
 
 

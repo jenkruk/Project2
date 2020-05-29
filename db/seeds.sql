@@ -25,14 +25,14 @@ VALUES ("Project 1"),
 
 
 -- Mock Tasks 
-INSERT INTO Tasks (task_name, status, ProjectId, UserId)
-VALUES ("Models", "waiting", 1, 2),
-("Set up heroku", "assigned", 1, 2),
-("Convert to jQuery", "active", 2, 3),
-("Set Up Routes", "done", 2, 3),
-("Set Up Server", "waiting", 3, 5),
-("User Interface", "assigned", 1, 4),
-("Design", "active", 1, 4)
+INSERT INTO Tasks (task_name, status)
+VALUES ("Models", "waiting"),
+("Set up heroku", "assigned"),
+("Convert to jQuery", "active"),
+("Set Up Routes", "done"),
+("Set Up Server", "waiting"),
+("User Interface", "assigned"),
+("Design", "active")
 
 --  Mock Project Members
  INSERT INTO ProjectMembers (ProjectId, UserId)
