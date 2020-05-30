@@ -24,5 +24,8 @@
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
     "sequelize": "^5.21.8"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }

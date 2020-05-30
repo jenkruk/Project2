@@ -16,11 +16,15 @@ app.use(express.json());
 var db = require("./models");
 
 // Import routes and give the server access to them.
+
  var router = require("./routes/routes.js");
  app.use(router);
 
  var htmlRoutes = require("./routes/htmlroutes")
  app.use(htmlRoutes);
+
+ var taskRoutes = require("./routes/taskRoutes.js")
+ app.use(taskRoutes);
 
  var taskRoutes = require("./routes/taskRoutes")
  app.use(taskRoutes);
