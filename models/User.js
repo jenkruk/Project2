@@ -7,14 +7,14 @@ module.exports = function (sequelize, DataTypes) {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-        len: [5, 10]
+        len: [2]
     }
 },
 password: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-        len: [5, 10]
+        len: [5]
     }
 },
     first_name: {

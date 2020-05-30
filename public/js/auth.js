@@ -59,11 +59,6 @@ auth.onAuthStateChanged(user => {
   });
   
 
-
-
-
-
-
   
   // signup
   const signupForm = document.querySelector('#signup-form');

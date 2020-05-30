@@ -29,7 +29,7 @@ $(document).ready(function(){
       });
 
       task.append(del);
-      $("#waiting").append(task); // the idea of #waiting is assigned to the ol
+      $("#waiting").append(task);
         //to clear the input
       $(".txtb").val("");
     }
@@ -39,24 +39,17 @@ $(document).ready(function(){
     // Make a newTask object
     var newTask = {
       task_name: task,
-      status: ("#waiting")
+      status: ("waiting")
     }
 
   // Send an AJAX POST-request with jQuery
-    $.post("/api/new", newTask)
+    $.post("/api/tasks/", newTask)
     // On success, run the following code
     .then(function(data){
       //log the data we found
       console.log(data);
     });
 
-
-
   });
-
-
-
-
-
 
 }); //end document.ready
