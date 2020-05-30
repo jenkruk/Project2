@@ -29,7 +29,7 @@ $(document).ready(function(){
       });
 
       task.append(del);
-      $("#waiting").append(task); // the idea of #waiting is assigned to the ol
+      $("#waiting").append(task);
         //to clear the input
       $(".txtb").val("");
     }
@@ -51,10 +51,5 @@ $(document).ready(function(){
     });
 
   });
-
-
-
-
-
 
 }); //end document.ready
