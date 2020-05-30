@@ -26,11 +26,9 @@ var db = require("./models");
  var taskRoutes = require("./routes/taskRoutes.js")
  app.use(taskRoutes);
 
- var taskRoutes = require("./routes/taskRoutes")
- app.use(taskRoutes);
 
 // Syncing our sequelize models and then starting our express app
 // use db.sequelize.sync({ force: true }) if you want to drop table each time
-db.sequelize.sync().then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT,()=>console.log(`Listening on port: ${PORT}`));
 });

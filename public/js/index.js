@@ -67,7 +67,7 @@ $(document).ready(function(){
           y,
           slides =  $("#slideshow .slide"),
           slidesLen = slides.length - 1;
-      for (x = 0, y = 9999; x < slides.length; x += 1, y -= 1) {
+      for (x = 0, y = 2; x < slides.length; x += 1, y -= 1) {
           $(slides[x]).css("z-index", y);
       }
       return {
@@ -85,7 +85,7 @@ $(document).ready(function(){
                       slides.eq(counter).fadeOut();
                       counter += 1;
                   }
-              }, 7000);
+              }, 5000);
           }
       };
   }());

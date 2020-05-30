@@ -67,10 +67,22 @@ nav ul a:active {
     width: 37vw;
 }
 
+#burgerBackground {
+    box-shadow: none;
+}
+
+
 #dropdown li a:hover {
     text-decoration: none !important;
     color: #0c7cd6 !important;
 }
+
+.dropdown-content {
+    position: static;
+    margin-right: 7vw;
+    margin-top: -4vw;
+    z-index: 9999;
+    }
 
 .title {
     font-family: 'Abril Fatface', cursive;

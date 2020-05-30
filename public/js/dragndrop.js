@@ -9,10 +9,12 @@ $(document).ready(function() {
         dropOnEmpty: false
     });
 
-    // for manager page
-    $( "#available, #project1, #project2, #project3, #newProject").sortable({
+    // for project manager page
+    $( "#available, #project1, #project2, #project3, #project4").sortable({
         connectWith: ".sort",
         dropOnEmpty: false
-    });
+      });
+
+
 
 })

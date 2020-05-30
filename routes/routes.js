@@ -47,8 +47,7 @@ router.post("/api/newuser", function (req, res) {
       console.log(err);
   })
 })
-<<<<<<< HEAD
-=======
+
   // Post to blog table
   router.put("/api/user/update/:id", function (req, res) {
     var id = req.params.id;
@@ -56,10 +55,10 @@ router.post("/api/newuser", function (req, res) {
     console.log(id);
 
     db.User.update({
-        manager: 1
+       manager: 1
     }, {
         where: {
-            userName: req.params.id
+         userName: req.params.id
         }
     }).then(function (result) {
         console.log("Updated user table");
@@ -67,7 +66,6 @@ router.post("/api/newuser", function (req, res) {
     })
 })
 
->>>>>>> 0521007a46c0c5e00fef005fa5038519b8300b67
 
 // GET route for getting all of the projects
 router.get("/api/projects", function(req, res) {

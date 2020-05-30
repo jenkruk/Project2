@@ -31,26 +31,34 @@
               <a id="burgerBackground" href="#" data-activates="dropdown" class="row btn white dropdown-button blue-text" data-target="dropdown">
                 <i class="material-icons">menu</i>
               </a>
-              <ul class="right dropdown-content" id="dropdown">
-                <li><a class="pink-text" href="/">Home</a></li>
-                <li><a class="blue-text" href="/manager">Project Managers</a></li>
-                <li><a class="blue-text" href="/team">Team Members</a></li>
+              <ul id="dropdown" class='dropdown-content'>
+                <li><a id="manager" class="logged-in orange-text" href="/manager" style="display: none;">Manager</a></li>
+                <li><a class="logged-in orange-text bFont" href="/team" style="display: none;">Team</a></li>
+                <li class="logged-in" style="display: none;">
+                  <a href="#" class="orange-text modal-trigger bFont" data-target="modal-account">Account</a>
+                </li>
+                <li class="logged-out" style="display: none;">
+                  <a href="#" class="orange-text modal-trigger bFont" data-target="modal-login">Login</a>
+                </li>
+                <li class="logged-out" style="display: none;">
+                  <a href="#" class="orange-text modal-trigger bFont" data-target="modal-signup">Sign up</a>
+                </li>
+                <li class="admin" style="display: none;">
+                  <a href="#" class="grey-text modal-trigger bFont" data-target="modal-create">Manage User</a>
+                </li>
+                <li class="logged-in" style="display: none;">
+                  <a href="#" class="orange-text bFont" id="logout">Logout</a>
+                </li>
               </ul>
             </div>
       <!-- MAIN NAVBAR MENU  -->
       <div class="col s6 blue-text navMenu">
         <div>
           <ul>
-            <li><a id="manager" class="logged-in blue-text" href="/manager" style="display: none;">Project Managers</a></li>
-            <li><a class="logged-in blue-text" href="/team" style="display: none;">Team Members</a></li>
+            <li><a id="manager" class="logged-in blue-text" href="/manager" style="display: none;">Manager</a></li>
+            <li><a class="logged-in blue-text" href="/team" style="display: none;">Team</a></li>
             <li class="logged-in" style="display: none;">
               <a href="#" class="blue-text modal-trigger" data-target="modal-account">Account</a>
-            </li>
-            <li class="logged-in" style="display: none;">
-              <a href="#" class="blue-text" id="logout">Logout</a>
-            </li>
-            <li class="admin" style="display: none;">
-              <a href="#" class="grey-text modal-trigger" data-target="modal-create">Manage User</a>
             </li>
             <li class="logged-out" style="display: none;">
               <a href="#" class="blue-text modal-trigger" data-target="modal-login">Login</a>
@@ -58,9 +66,13 @@
             <li class="logged-out" style="display: none;">
               <a href="#" class="blue-text modal-trigger" data-target="modal-signup">Sign up</a>
             </li>
-            <!-- <li class="logged-in" style="display: none;"> -->
-              <!-- <button type="submit" class="btn btn-primary" id="login-btn">View Projects</button> -->
-          <!-- </li> -->
+            <li class="logged-in" style="display: none;">
+              <a href="#" class="blue-text" id="logout">Logout</a>
+            </li>
+            <li class="admin" style="display: none;">
+              <a href="#" class="grey-text modal-trigger" data-target="modal-create">Manage User</a>
+            </li>
+
           </ul>
         </div>
       </div> 
@@ -165,28 +177,22 @@
       <div class="slideshow center-align">
         <div id="slideshow">
           <div class="slide">
-            <img class="responsive-img pics center-align" src="/images/infographics/one.jpg" alt ="">
-            <p class="left-align caption1"></p>
+            <img class="responsive-img" src="/images/infographics/one.jpg" alt ="">
           </div>
           <div class="slide">
-            <img class="responsive-img pics" src="/images/infographics/six.jpg" alt ="">
-            <p class="left-align green-text caption2"></p>
+            <img class="responsive-img" src="/images/infographics/six.jpg" alt ="">
           </div>
           <div class="slide">
-            <img class="responsive-img pics" src="/images/infographics/three.jpg" alt ="">
-            <p class="left-align caption3"></p>
+            <img class="responsive-img" src="/images/infographics/three.jpg" alt ="">
           </div>
           <div class="slide">
-            <img class="responsive-img pics" src="/images/infographics/four.jpg" alt ="">
-            <p class="left-align caption4"></p>
+            <img class="responsive-img" src="/images/infographics/four.jpg" alt ="">
           </div>
           <div class="slide">
-            <img class="responsive-img pics" src="/images/infographics/five.jpg" alt ="">
-            <p class="left-align caption5"></p>
+            <img class="responsive-img" src="/images/infographics/five.jpg" alt ="">
           </div>
           <div class="slide">
-            <img class="responsive-img pics" src="/images/infographics/two.jpg" alt ="">
-            <p class="left-align caption6"></p>
+            <img class="responsive-img" src="/images/infographics/two.jpg" alt ="">
           </div>
         </div>
       </div>       <!-- end slideshow -->
@@ -263,7 +269,7 @@
  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <!--keep this one for authentication-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <!-- javascript file --> 
   <script src="/js/auth.js"></script>
   <script src="/js/index.js"></script>
