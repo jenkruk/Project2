@@ -55,7 +55,7 @@ router.post("/api/newuser", function (req, res) {
     console.log(id);
 
     db.User.update({
-        manager: 1
+       manager: 1
     }, {
         where: {
          userName: req.params.id

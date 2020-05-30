@@ -23,7 +23,6 @@ VALUES ("Project 1"),
 ("Project 4"),
 ("Project 5");
 
-
 -- Mock Tasks 
 INSERT INTO Tasks (task_name, status)
 VALUES ("Models", "waiting"),

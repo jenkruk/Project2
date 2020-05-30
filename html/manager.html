@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- jQUERY  -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <!-- MATERIALIZE CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS -->
@@ -14,7 +13,7 @@
     <!-- MEDIA QUERIES CSS -->
     <link rel="stylesheet" type="text/css" href="../css/media.css">
     <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display&family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display&family=Playfair+Display&family=Raleway&display=swap" rel="stylesheet">
     <!-- FAVICON -->
     <link rel="icon" href="/images/favicon.png" type="image/png">
     <title>tuesday.com</title>
@@ -24,19 +23,26 @@
 
   <!-- HEADER  -->
   <div class="container">
-    <nav class="white">
-      <!-- HEADING TITLE/LOGO  -->
-      <div class="col s6 title left blue-text">tuesday.com</div>
-      <!-- BURGER MENU  -->
+  <nav class="white">
+  <!-- HEADING TITLE/LOGO  -->
+  <div class="col s6 title left blue-text">tuesday.com</div>
     <!-- BURGER MENU  -->
     <div class="row right-align burger">
-      <a id="test" href="#" data-activates="dropdown" class="row btn white dropdown-button blue-text" data-target="dropdown">
+      <a id="burgerBackground" href="#" data-activates="dropdown" class="row btn white dropdown-button blue-text" data-target="dropdown">
         <i class="material-icons">menu</i>
       </a>
-      <ul class="right-align dropdown-content" id="dropdown">
-        <li><a class="pink-text" href="/">Home</a></li>
-        <li><a class="blue-text" href="/manager">Project Managers</a></li>
-        <li><a class="blue-text" href="/team">Team Members</a></li>
+      <ul id="dropdown" class='dropdown-content'>
+        <li><a id="manager" class="logged-in orange-text" href="/manager" style="display: none;">Project Manager</a></li>
+        <li><a class="logged-in orange-text bFont" href="/team" style="display: none;">Team Members</a></li>
+        <li class="logged-in" style="display: none;">
+          <a href="#" class="orange-text modal-trigger bFont" data-target="modal-account">Account</a>
+        </li>
+        <li class="admin">
+          <a href="#" class="grey-text modal-trigger bFont" data-target="modal-create">Manage User</a>
+        </li>
+        <li class="logged-in">
+          <a href="#" class="orange-text bFont" id="logout">Logout</a>
+        </li>
       </ul>
     </div>
       <!-- MAIN NAVBAR MENU  -->
@@ -44,8 +50,14 @@
           <div>
             <ul>
               <li><a class="blue-text" href="/">Home</a></li>
-              <li><a class="orange-text" href="/manager">Project Manager Page</a></li>
-              <li><a class="blue-text" href="/team">Team Member Page</a></li>
+              <li><a class="orange-text" href="/manager">Project Manager </a></li>
+              <li><a class="blue-text" href="/team">Team Page</a></li>
+              <li class="admin" style="display: block;">
+                <a href="#" class="grey-text modal-trigger bFont" data-target="modal-create">Manage User</a>
+              </li>
+              <li class="logged-in" style="display: block;">
+                <a href="#" class="orange-text bFont" id="logout">Logout</a>
+              </li>
             </ul>
           </div>
       </div> 
@@ -74,7 +86,9 @@
       <span class="card-title center"><h6>Available <br> Team Members</h6></span>
       <hr>
       <ol id="available" class="sort">
-      <li>John Smith<i class="tiny material-icons"id="del">delete_forever</i></li>
+      <li>John Smith<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+      <li>Tim Taylor<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+      <li>Selena Thomas<i class="tiny material-icons delete"id="del">delete_forever</i></li>
     </ol>
     </div>         
     <a href="#" class="btn-floating right blue btn-small" id="openForm">
@@ -91,8 +105,8 @@
       <span class="card-title center">Project One</span>
       <hr>
       <ol id="project1" class="sort">
-        <li>Grace Jones<i class="tiny material-icons"id="del">delete_forever</i></li>
-        <li>Tom Ford<i class="tiny material-icons"id="del">delete_forever</i></li>
+        <li>Grace Jones<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+        <li>Tom Ford<i class="tiny material-icons delete"id="del">delete_forever</i></li>
     </ol>
     </div>
    </div>
@@ -102,8 +116,8 @@
       <span class="card-title center">Project Two</span>
       <hr>
       <ol id="project2" class="sort">
-        <li>Ricky Ricardo<i class="tiny material-icons"id="del">delete_forever</i></li>
-        <li>Jimmy Hendrix<i class="tiny material-icons"id="del">delete_forever</i></li>
+        <li>Ricky Ricardo<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+        <li>Jimmy Hendrix<i class="tiny material-icons delete"id="del">delete_forever</i></li>
     </ol>
     </div>
    </div>
@@ -112,14 +126,57 @@
     <div class="card-content blue-grey-text">
       <span class="card-title center">Project Three</span>
       <hr>
-      <ul id="project3" class="sort">
-        <li>Alice Cooper<i class="tiny material-icons"id="del">delete_forever</i></li>
-        <li>Martha Stewart<i class="tiny material-icons"id="del">delete_forever</i></li>
-      </ul>
+      <ol id="project3" class="sort">
+        <li>Mattie Marx<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+        <li>Martha Stewart<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+      </ol>
     </div>
    </div>
 
 </div> <!-- end row -->
+
+  <!-- CARDS -->
+  <div class="row cardRow">
+
+    <div class="card white col sm3" style="visibility: hidden">
+      <span class="card-title center">space holder</span>
+      <hr>
+     </div>
+  
+     <div class="card white col sm3 cardFour">
+      <div class="card-content blue-grey-text">
+        <span class="card-title center">Project Four</span>
+        <hr>
+        <ol id="project4" class="sort">
+          <li>Add to team<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+          <li>Add to team<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+      </ol>
+      </div>
+     </div>
+  
+     <div class="card white col sm3" style="visibility: hidden">
+      <div class="card-content blue-grey-text">
+        <span class="card-title center">Project Five</span>
+        <hr>
+        <ol id="project2" class="sort">
+          <li>Ricky Ricardo<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+          <li>Jimmy Hendrix<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+      </ol>
+      </div>
+     </div>
+  
+     <div class="card white col sm3" style="visibility: hidden">
+      <div class="card-content blue-grey-text">
+        <span class="card-title center">Project Six</span>
+        <hr>
+        <ol id="project3" class="sort">
+          <li>Alice Cooper<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+          <li>Martha Stewart<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+        </ol>
+      </div>
+     </div>
+  
+  </div> <!-- end row -->
 
 
   <!-- FIXED ACTION BUTTON -->
@@ -141,23 +198,23 @@
     </div>
   </div>
 
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
-  <!-- SDKs for Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
-  <!-- jQUERY UI FOR DRAG AND DROP -->
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <!--Import jQuery before materialize.js-->
-  <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
-  <!-- Compiled and minified JavaScript - keep this one for the dropdown menu-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-  <!--keep this one for authentication-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
-  <!-- javaScript files -->
-  <script type="text/javascript" src="/js/index.js"></script>
-  <script type="text/javascript" src="/js/manager.js"></script>
-  <script type="text/javascript" src="/js/dragndrop.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <!-- SDKs for Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
+    <!-- jQUERY UI FOR DRAG AND DROP -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--Import jQuery before materialize.js-->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
+   <!-- Compiled and minified JavaScript - keep this one for the dropdown menu-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+   <!--keep this one for authentication-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+    <!-- javaScript files -->
+    <script type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript" src="/js/manager.js"></script>
+    <script type="text/javascript" src="/js/dragndrop.js"></script>
 
 </body>
 </html>

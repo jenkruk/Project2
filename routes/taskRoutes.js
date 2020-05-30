@@ -9,24 +9,24 @@ var taskRoutes = express.Router();
 // Require the models
 var db= require("../models")
 
-// Post to user table
+// Post to task table
 taskRoutes.post("/api/tasks/:newTask", function (req, res) {
-  console.log("New Task Added");
+console.log("New Task Added");
 
   db.Task.create({
-      task_name: req.params.task_name,
+      task_name: req.params.newTask,
   }).then(function (result) {
-      console.log("Inserted into user table");
+      console.log("Added to task table");
   }).catch(function (err) {
       console.log(err);
   })
 })
 
 // GET route for getting all of the tasks
-taskRoutes.get("/api/tasks", function(req, res) {
-    // findAll returns all entries for a table when used with no options
-    db.Task.findAll({raw:true}).then(function(result) {
-      // We have access to the team as an argument inside of the callback function
+  taskRoutes.get("/api/tasks", function(req, res) {
+  // findAll returns all entries for the task table when used with no options
+  db.Task.findAll({raw:true}).then(function(result) {
+  // We have access to the new task as an argument inside of the callback function
       res.json(result);
     });
   });

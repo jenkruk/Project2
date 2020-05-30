@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- jQUERY  -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <!-- MATERIALIZE CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS -->
@@ -14,7 +13,7 @@
     <!-- MEDIA QUERIES CSS -->
     <link rel="stylesheet" type="text/css" href="../css/media.css">
     <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display&family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display&family=Playfair+Display&family=Raleway&display=swap" rel="stylesheet">
     <!-- FAVICON -->
     <link rel="icon" href="/images/favicon.png" type="image/png">
     <title>tuesday.com</title>
@@ -29,13 +28,24 @@
         <div class="col s6 title left blue-text">tuesday.com</div>
         <!-- BURGER MENU  -->
         <div class="row right-align burger">
-          <a id="test" href="#" data-activates="dropdown" class="row btn white dropdown-button blue-text" data-target="dropdown">
+          <a id="burgerBackground" href="#" data-activates="dropdown" class="row btn white dropdown-button blue-text" data-target="dropdown">
             <i class="material-icons">menu</i>
           </a>
-          <ul class="right-align dropdown-content" id="dropdown">
-            <li><a class="pink-text" href="/">Home</a></li>
-            <li><a class="blue-text" href="/manager">Project Managers</a></li>
-            <li><a class="blue-text" href="/team">Team Members</a></li>
+          <ul id="dropdown" class='dropdown-content'>
+            <li><a id="manager" class="logged-in orange-text" href="/manager" style="display: none;">Project Manager</a></li>
+            <li><a class="logged-in orange-text bFont" href="/team" style="display: none;">Team Member</a></li>
+            <li class="logged-out" style="display: none;">
+              <a href="#" class="orange-text modal-trigger bFont" data-target="modal-login">Login</a>
+            </li>
+            <li class="logged-out" style="display: none;">
+              <a href="#" class="orange-text modal-trigger bFont" data-target="modal-signup">Sign up</a>
+            </li>
+            <li class="admin" style="display: none;">
+              <a href="#" class="grey-text modal-trigger bFont" data-target="modal-create">Manage User</a>
+            </li>
+            <li class="logged-in" style="display: none;">
+              <a href="#" class="orange-text bFont" id="logout">Logout</a>
+            </li>
           </ul>
         </div>
         <!-- MAIN NAVBAR MENU  -->
@@ -43,7 +53,13 @@
             <div>
               <ul>
                 <li><a class="blue-text" href="/">Home</a></li>
-                <li><a class="green-text" href="/team">Team Member Page</a></li>
+                <li><a class="green-text" href="/team">Team Page</a></li>
+                <li class="logged-in" style="display: none;">
+                  <a href="#" class="orange-text modal-trigger bFont" data-target="modal-account">Account</a>
+                </li>
+                <li class="logged-in">
+                  <a href="#" class="grey-text" id="logout">Logout</a>
+                </li>
               </ul>
             </div>
         </div> 
@@ -71,8 +87,8 @@
           <div class="card-content blue-grey-text">
             <span class="card-title center">Waiting...</span>
             <hr>
-            <ol id="waiting" class="sort">
-            <li>Draggable!<i class="tiny material-icons"id="del">delete_forever</i></li>
+          <ol id="waiting" class="sort">
+            <li>Draggable!<i class="tiny material-icons delete"id="del">delete_forever</i></li>
           </ol>
           </div>         
           <a href="#" class="btn-floating right blue btn-small" id="openForm">
@@ -89,8 +105,8 @@
             <span class="card-title center">Assigned</span>
             <hr>
             <ol id="assigned" class="sort">
-              <li>This is the first task<i class="tiny material-icons"id="del">delete_forever</i></li>
-              <li>This is another task<i class="tiny material-icons"id="del">delete_forever</i></li>
+              <li>This is the first task<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+              <li>This is another task<i class="tiny material-icons delete"id="del">delete_forever</i></li>
           </ol>
           </div>         
          </div>
@@ -100,8 +116,8 @@
             <span class="card-title center">Active</span>
             <hr>
             <ol id="active" class="sort">
-              <li>This is the first task<i class="tiny material-icons"id="del">delete_forever</i></li>
-              <li>This is another task<i class="tiny material-icons"id="del">delete_forever</i></li>
+              <li>This is the first task<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+              <li>This is another task<i class="tiny material-icons delete"id="del">delete_forever</i></li>
           </ol>
           </div>
          </div>
@@ -110,9 +126,9 @@
           <div class="card-content blue-grey-text">
             <span class="card-title center">Done</span>
             <hr>
-            <ul class="sort" id="done">
-              <li>This is the first task<i class="tiny material-icons"id="del">delete_forever</i></li>
-              <li>This is another task<i class="tiny material-icons"id="del">delete_forever</i></li>
+            <ul id="done" class="sort" >
+              <li>This is the first task<i class="tiny material-icons delete"id="del">delete_forever</i></li>
+              <li>This is another task<i class="tiny material-icons delete"id="del">delete_forever</i></li>
             </ul>
           </div>
          </div>
@@ -132,9 +148,13 @@
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
     <!-- SDKs for Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
-    <!-- jQUERY UI FOR DRAG AND DROP -->
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+    <!-- jQUERY UI FOR DRAG AND DROP -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
     <!--Import jQuery before materialize.js-->
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
    <!-- Compiled and minified JavaScript - keep this one for the dropdown menu-->
