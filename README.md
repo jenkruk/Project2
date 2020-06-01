@@ -3,6 +3,12 @@
 
 This app is a project organization tool heavily inspired by Trello, Monday.com and the Github Project Kanbans.
 
+User authentication is handled through Firebase.
+
+We utilized Express as the server and sequelize for table and association management.
+
+It is designed using the Materialize CSS library as well as jQuery User Interface interactions.
+
 
 ## GO TO SITE
 
