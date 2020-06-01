@@ -29,6 +29,6 @@ var db = require("./models");
 
 // Syncing our sequelize models and then starting our express app
 // use db.sequelize.sync({ force: true }) if you want to drop table each time
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT,()=>console.log(`Listening on port: ${PORT}`));
 });

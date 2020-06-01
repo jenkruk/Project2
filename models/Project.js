@@ -22,14 +22,14 @@ module.exports = function (sequelize, DataTypes) {
   );
 
   // associating Projects table to Tasks, Team Members and Project Managers
-  Project.associate = function(models){
-  // Each Project belongs to A Project Manager
-  Project.belongsTo(models.User, { as: "ProjectManager" }),
+//   Project.associate = function(models){
+//   // Each Project belongs to A Project Manager
+//   Project.belongsTo(models.User, { as: "ProjectManager" }),
   
-  // Each Project can have many Tasks
-  Project.hasMany(models.Task, {
-    onDelete: "cascade"
-  })
-}
+//   // Each Project can have many Tasks
+//   Project.hasMany(models.Task, {
+//     onDelete: "cascade"
+//   })
+// }
   return Project;
 }
