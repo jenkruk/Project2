@@ -173,9 +173,13 @@ input.team-value {
     margin-bottom: 3vh;
 }
 
+#addTeam {
+    height: 33px;
+}
+
 .plus {
-    padding-right: 0.15vw;
- 
+    padding-right: 0.4rem;
+    margin-top: -0.3vh;
 }
 
 li i{

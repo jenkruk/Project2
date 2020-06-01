@@ -150,8 +150,6 @@ li {
     color: lightgray;
 }
 
-
-
 #add-task-form,
 .btn-small {
     margin-bottom: 3vh;
@@ -162,8 +160,13 @@ li {
     justify-content: space-between;
 }
 
+#addTask {
+    height: 33px;
+}
+
 .plus {
-    padding-right: 0.15vw;
+    padding-right: 0.4rem;
+    margin-top: -0.3vh;
 }
 
 input.txtb {

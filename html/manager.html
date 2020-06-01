@@ -37,7 +37,7 @@
         <li class="logged-in" style="display: none;">
           <a href="#" class="orange-text modal-trigger bFont" data-target="modal-account">Account</a>
         </li>
-        <li class="admin">
+        <li class="admin" style="display: none">
           <a href="#" class="grey-text modal-trigger bFont" data-target="modal-create">Manage User</a>
         </li>
         <li class="logged-in">
@@ -52,7 +52,7 @@
               <li><a class="blue-text" href="/">Home</a></li>
               <li><a class="orange-text" href="/manager">Project Manager </a></li>
               <li><a class="blue-text" href="/team">Team Page</a></li>
-              <li class="admin" style="display: block;">
+              <li class="admin" style="display: none">
                 <a href="#" class="grey-text modal-trigger bFont" data-target="modal-create">Manage User</a>
               </li>
               <li class="logged-in" style="display: block;">
@@ -88,14 +88,13 @@
       <ol id="available" class="sort">
       <li>John Smith<i class="tiny material-icons delete"id="del">delete_forever</i></li>
       <li>Tim Taylor<i class="tiny material-icons delete"id="del">delete_forever</i></li>
-      <li>Selena Thomas<i class="tiny material-icons delete"id="del">delete_forever</i></li>
     </ol>
     </div>         
     <a href="#" class="btn-floating right blue btn-small" id="openForm">
       <i class="small material-icons">add</i></a>
       <div id="add-form">
         <input type="text" class="team-value txtb blue-grey-text center-align" placeholder="Add a Team Member">
-        <a href="#" class="btn-floating right blue btn-small">
+        <a href="#" class="btn-floating right blue btn-small" id="addTeam">
           <i class="material-icons plus">add</i></a>
     </div>
    </div>

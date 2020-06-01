@@ -79,7 +79,12 @@ router.get("/api/projects", function(req, res) {
   // GET route for getting all of the users
 router.get("/api/users", function(req, res) {
   // findAll returns all entries for a table when used with no options
-  db.User.findAll({raw:true}).then(function(result) {
+  db.User.findAll({
+    raw:true,
+    attributes: {
+      exclude: ["password"],
+    },
+  }).then(function(result) {
     // We have access to the team as an argument inside of the callback function
     res.json(result);
   });
