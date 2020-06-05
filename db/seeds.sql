@@ -1,39 +1,41 @@
 --  header space 
  
 --  Mock Users
- INSERT INTO Users (first_name, last_name, manager, email, password)
- VALUES ("John", "Smith", true, "js@gmail.com", "123456"),
-("Jane", "Jones", true, "jj@gmail.com", "123456"),
-("Julie", "Prince", true, "jp@gmail.com", "123456"),
-("Mary", "Mack", false, "mem@gmail.com", "123456"),
-("Mo", "Nance", false, "mn@gmail.com", "123456"),
-("Matt", "Murphy", false, "mm@gmail.com", "123456"),
-("Nick", "Ramos", false, "nr@gmail.com", "123456"),
-("Noel", "Cooper", false, "nc@gmail.com", "123456"),
-("Nat", "Plath", false, "np@gmail.com", "123456"),
-("Paul", "Tack", false, "pt@gmail.com", "123456"),
-("Pam", "Updike", false, "pu@gmail.com", "123456"),
-("Pat", "Perry", false, "pp@gmail.com", "123456");
+ INSERT INTO Users (userName, userfirst_name, last_name, manager, email)
+ VALUES ("John", "Smith", true, "js@gmail.com"),
+("Jane", "Jane", "Jones", true, "jj@gmail.com"),
+("Julie", "Julie", "Prince", true, "jp@gmail.com"),
+("Mary", "Mary", "Mack", false, "mem@gmail.com"),
+("Mo", "Mo", "Nance", false, "mn@gmail.com"),
+("Matt", "Matt", "Murphy", false, "mm@gmail.com"),
+("Nick", "Nick", "Ramos", false, "nr@gmail.com"),
+("Noel", "Noel", "Cooper", false, "nc@gmail.com"),
+("Nat", "Nat", "Plath", false, "np@gmail.com"),
+("Paul", "Paul", "Tack", false, "pt@gmail.com"),
+("Pam", "Pam", "Updike", false, "pu@gmail.com"),
+("Pat", "Pat", "Perry", false, "pp@gmail.com"),
+("Jen", "Jen", "Kruk", true, "jennsmail2000@yahoo.com");
 
 -- Mock Projects 
-INSERT INTO Projects (project_name)
-VALUES ("Project 1"),
-("Project 2"),
-("Project 3"),
-("Project 4"),
-("Project 5");
+INSERT INTO Projects (project_name, project_status, ProjectManagerId)
+VALUES ("Project 1", null, 1),
+("Project 2", null, 2),
+("Project 3", null, 3),
+("Project 4", null, 4),
+("Project 5", null, 13);
 
 -- Mock Tasks 
-INSERT INTO Tasks (task_name, status)
-VALUES ("Models", "waiting"),
-("Set up heroku", "assigned"),
-("Convert to jQuery", "active"),
-("Set Up Routes", "done"),
-("Set Up Server", "waiting"),
-("User Interface", "assigned"),
-("Design", "active")
+INSERT INTO Tasks (task_name, status, ProjectID, UserID)
+VALUES ("Models", "waiting", 1, 2),
+("Set up heroku", "assigned", 2, 3),
+("Convert to jQuery", "active", 3, 4),
+("Set Up Routes", "done", 1, 5),
+("Set Up Server", "waiting", 2, 6),
+("User Interface", "assigned", 3, 7),
+("Design", "active", 5, 8)
 
 --  Mock Project Members
  INSERT INTO ProjectMembers (ProjectId, UserId)
- VALUES (1, 2),
-(2, 1)
+ VALUES (7, 2),
+(8, 1),
+(9, 1);

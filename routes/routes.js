@@ -13,34 +13,17 @@ var router = express.Router();
 var db = require("../models");
 var path = require("path");
 
-// Routes
-router.get("/", function (req, res) {
-  // console.log("Inside root route");
-  res.sendFile(path.join(__dirname , "../html/index.html"));
-})
-
-// Routes
-router.get("/team", function (req, res) {
-   
-  res.sendFile(path.join(__dirname , "../html/team.html"));
-})
-
-router.get("/manager", function (req, res) {
-   
-  res.sendFile(path.join(__dirname , "../html/manager.html"));
-})
-
 // Post to user table
 router.post("/api/newuser", function (req, res) {
   console.log("Inside new user");
 
   db.User.create({
       userName: req.body.userName,
-      password: req.body.password,
+      // password: req.body.password,
       first_name: req.body.firstName,
       last_name:req.body.lastName,
-      email:req.body.email,
-      manager:false
+      manager: 0,
+      email:req.body.email
   }).then(function (result) {
       console.log("Inserted into user table");
   }).catch(function (err) {
@@ -48,29 +31,41 @@ router.post("/api/newuser", function (req, res) {
   })
 })
 
-  // Post to blog table
-  router.put("/api/user/update/:id", function (req, res) {
-    var id = req.params.id;
-    console.log("Inside update function of user table");
-    console.log(id);
-
-    db.User.update({
-       manager: 1
-    }, {
-        where: {
-         userName: req.params.id
-        }
-    }).then(function (result) {
-        console.log("Updated user table");
-        res.json(result);
-    })
+// Post to user table
+router.put("/api/user/update/:id", function (req, res) {
+  var id = req.params.id;
+  console.log("Inside update function of user table");
+  console.log(id);
+  db.User.update({
+     manager: 1
+  }, {
+      where: {
+       userName: req.params.id
+      }
+  }).then(function (result) {
+      console.log("Updated user table");
+      res.json(result);
+  })
 })
 
+// GET route for getting all of the projects
+router.get("/api/projects/:ProjectManagerId", function(req, res) {
+  // findAll returns all entries for a table when used with no options
+  db.Project.findAll({
+    raw:true,
+    where: {ProjectManagerId: req.params.ProjectManagerId},
+    include: [db.ProjectMember]
+
+  }).then(function(result) {
+    // We have access to the projects as an argument inside of the callback function
+    res.json(result);
+  });
+});
 
 // GET route for getting all of the projects
-router.get("/api/projects", function(req, res) {
+router.get("/api/tasks", function(req, res) {
   // findAll returns all entries for a table when used with no options
-  db.Project.findAll({raw:true}).then(function(result) {
+  db.Task.findAll({raw:true}).then(function(result) {
     // We have access to the projects as an argument inside of the callback function
     res.json(result);
   });

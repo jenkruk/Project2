@@ -5,13 +5,6 @@ adminForm.addEventListener('submit',(e)=>{
   e.preventDefault();
   const adminEmail = document.querySelector('#admin-email').value;
 const addAdminRole = functions.httpsCallable('addAdminRole');
-const userId = document.querySelector('#admin-id').value;
-$.ajax("/api/user/update/" + userId, {
-  type: "PUT"
-}).then(function () {
-  console.log("Updated value to user table")
-});
-
 addAdminRole({email:adminEmail}).then(result=>{
   console.log(result);
   closeOneModal("modal-create");
@@ -66,6 +59,12 @@ auth.onAuthStateChanged(user => {
   });
   
 
+
+
+
+
+
+  
   // signup
   const signupForm = document.querySelector('#signup-form');
   signupForm.addEventListener('submit', (e) => {
@@ -133,7 +132,6 @@ auth.onAuthStateChanged(user => {
     const email = loginForm['login-email'].value;
     const password = loginForm['login-password'].value;
     document.getElementById('loginUserName').value=loginForm['login-username'].value;
-    document.getElementById('loginUserEmail').value=loginForm['login-email'].value;
     // log the user in
     auth.signInWithEmailAndPassword(email, password).then((cred) => {
       // close the signup modal & reset form

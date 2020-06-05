@@ -10,13 +10,13 @@ module.exports = function (sequelize, DataTypes) {
  );
 
 
-  // associating Projects Manager table to Team Members and Projects
-  // ProjectMember.associate = function(models){
+// associating Projects Manager table to Team Members and Projects
+  ProjectMember.associate = function(models){
 
-  // ProjectMember.belongsTo(models.Project)
+  ProjectMember.belongsTo(models.Project)
   
-  // ProjectMember.belongsTo(models.User)
-  // }
+  ProjectMember.belongsTo(models.User)
+  }
 
   return ProjectMember;
 };
