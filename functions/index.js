@@ -17,7 +17,6 @@ return admin.auth().getUserByEmail(data.email).then(user => {
     return err;
 });
 
-
 });
 
 exports.removeAdminRole = functions.https.onCall((data, context) =>{

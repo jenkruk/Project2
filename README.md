@@ -14,6 +14,15 @@ It is designed using the Materialize CSS library as well as jQuery User Interfac
 
 * [tuesday.com](https://calm-savannah-18314.herokuapp.com)
 
+## Sign Up
+![list](./public/images/readme/signup.gif)
+
+## Manage User / Make Admin
+![list](./public/images/readme/manageuser.gif)
+
+## Log-in / Log-out
+![list](./public/images/readme/login-logout.gif)
+
 ## Manager Page Demo
 ![list](./public/images/readme/mgrPage.gif)
 
