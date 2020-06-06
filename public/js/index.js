@@ -65,7 +65,7 @@ $(document).ready(function(){
       var counter = 0,
           x,
           y,
-          slides =  $("#slideshow .slide"),
+          slides =  $("#slideShow .slide"),
           slidesLen = slides.length - 1;
       for (x = 0, y = 2; x < slides.length; x += 1, y -= 1) {
           $(slides[x]).css("z-index", y);

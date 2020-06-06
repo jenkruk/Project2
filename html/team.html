@@ -9,9 +9,9 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/team.css">
+    <link rel="stylesheet" type="text/css" href="/css/team.css">
     <!-- MEDIA QUERIES CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/media.css">
+    <link rel="stylesheet" type="text/css" href="/css/media.css">
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display&family=Playfair+Display&family=Raleway&display=swap" rel="stylesheet">
     <!-- FAVICON -->
@@ -28,23 +28,16 @@
         <div class="col s6 title left blue-text">tuesday.com</div>
         <!-- BURGER MENU  -->
         <div class="row right-align burger">
-          <a id="burgerBackground" href="#" data-activates="dropdown" class="row btn white dropdown-button blue-text" data-target="dropdown">
+          <a id="burgerBackground" href="#" data-activates="dropdown" class="row btn dropdown-button blue-text" data-target="dropdown">
             <i class="material-icons">menu</i>
           </a>
-          <ul id="dropdown" class='dropdown-content'>
-            <li><a id="manager" class="logged-in orange-text" href="/manager" style="display: none;">Project Manager</a></li>
-            <li><a class="logged-in orange-text bFont" href="/team" style="display: none;">Team Member</a></li>
+          <ul class="right dropdown-content" id="dropdown">
+            <li><a class="blue-text" href="/">Home</a></li>
             <li class="logged-out" style="display: none;">
-              <a href="#" class="orange-text modal-trigger bFont" data-target="modal-login">Login</a>
+              <a href="#" class="blue-text modal-trigger" data-target="modal-login">Login</a>
             </li>
             <li class="logged-out" style="display: none;">
-              <a href="#" class="orange-text modal-trigger bFont" data-target="modal-signup">Sign up</a>
-            </li>
-            <li class="admin" style="display: none;">
-              <a href="#" class="grey-text modal-trigger bFont" data-target="modal-create">Manage User</a>
-            </li>
-            <li class="logged-in" style="display: none;">
-              <a href="#" class="orange-text bFont" id="logout">Logout</a>
+              <a href="#" class="blue-text modal-trigger" data-target="modal-signup">Sign up</a>
             </li>
           </ul>
         </div>

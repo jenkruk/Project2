@@ -63,26 +63,26 @@ nav ul a:active {
     display: inline-block;
 }
 
-.burger {
-    width: 37vw;
-}
-
 #burgerBackground {
     box-shadow: none;
+    background: transparent;
 }
 
+#dropdown {
+    margin-top: 1vh;
+}
+
+.dropdown-content {
+position: static;
+margin-right: 7vw;
+margin-top: -4vw;
+z-index: 9999;
+}
 
 #dropdown li a:hover {
     text-decoration: none !important;
     color: #0c7cd6 !important;
 }
-
-.dropdown-content {
-    position: static;
-    margin-right: 7vw;
-    margin-top: -4vw;
-    z-index: 9999;
-    }
 
 .title {
     font-family: 'Abril Fatface', cursive;

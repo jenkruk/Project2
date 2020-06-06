@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- MATERIALIZE CSS -->
-    <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-    <!--Import Google Icon Font-->
+    <!-- GOOGLE ICONS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
     <!-- MEDIA QUERIES CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/media.css">
+    <link rel="stylesheet" type="text/css" href="/css/media.css">
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display&family=Playfair+Display&family=Raleway&display=swap" rel="stylesheet">
     <!-- FAVICON -->
@@ -20,7 +19,6 @@
 </head>
 <body>
 
-
     <!-- HEADER  -->
   <div class="container">
     <nav class="white">
@@ -28,15 +26,20 @@
       <div class="col s6 title left blue-text">tuesday.com</div>
       <!-- BURGER MENU  -->
       <div class="row right-align burger">
-              <a id="burgerBackground" href="#" data-activates="dropdown" class="row btn white dropdown-button blue-text" data-target="dropdown">
-                <i class="material-icons">menu</i>
-              </a>
-              <ul class="right dropdown-content" id="dropdown">
-                <li><a class="pink-text" href="/">Home</a></li>
-                <li><a class="blue-text" href="/manager">Project Managers</a></li>
-                <li><a class="blue-text" href="/team">Team Members</a></li>
-              </ul>
-            </div>
+        <a id="burgerBackground" href="#" data-activates="dropdown" class="row btn dropdown-button blue-text" data-target="dropdown">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right dropdown-content" id="dropdown">
+          <li><a id="manager" class="logged-in blue-text" href="/manager" style="display: none;">Project Managers</a></li>
+          <li><a class="logged-in blue-text" href="/team" style="display: none;">Team Members</a></li>
+          <li class="logged-out" style="display: none;">
+            <a href="#" class="blue-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out" style="display: none;">
+            <a href="#" class="blue-text modal-trigger" data-target="modal-signup">Sign up</a>
+          </li>
+        </ul>
+      </div>
       <!-- MAIN NAVBAR MENU  -->
       <div class="col s6 blue-text navMenu">
         <div>
@@ -58,9 +61,6 @@
             <li class="logged-out" style="display: none;">
               <a href="#" class="blue-text modal-trigger" data-target="modal-signup">Sign up</a>
             </li>
-            <!-- <li class="logged-in" style="display: none;"> -->
-              <!-- <button type="submit" class="btn btn-primary" id="login-btn">View Projects</button> -->
-          <!-- </li> -->
           </ul>
         </div>
       </div> 
@@ -78,10 +78,8 @@
     </div>
 
     <!-- BODY  -->
-    <div class="container bodyContainer">  
+    <div class="container modalContainer">  
 
- 
-  <!-- MODAL CONTENT -->
   <!-- SIGN UP MODAL -->
   <div id="modal-signup" class="modal">
     <div class="modal-content">
@@ -119,9 +117,11 @@
         </form>
     </div>
 </div>
+
   <!-- CREATE & MANAGE USER MODAL -->
   <div id="modal-create" class="modal">
     <div class="modal-content">
+
       <!-- ADMIN ACTIONS -->
  <form class="center-align admin-actions admin" style="margin: 40px auto; max-width: 300px; display:none;">
   <input type="email" placeholder="User email" id="admin-email" required />
@@ -152,7 +152,8 @@
         </form>
     </div>
 </div>
-     <!-- ACCOUNT MODAL -->
+
+  <!-- ACCOUNT MODAL -->
   <div id="modal-account" class="modal">
     <div class="modal-content center-align">
       <h4>Account details</h4><br />
@@ -160,58 +161,71 @@
     </div>
   </div>
 
-  <!-- MAIN PAGE SLIDESHOW  -->
-      <div class="slideshow center-align">
-        <div id="slideshow">
-          <div class="slide">
-            <img class="responsive-img pics center-align" src="/images/infographics/one.jpg" alt ="">
-            <p class="left-align caption1"></p>
-          </div>
-          <div class="slide">
-            <img class="responsive-img pics" src="/images/infographics/six.jpg" alt ="">
-            <p class="left-align green-text caption2"></p>
-          </div>
-          <div class="slide">
-            <img class="responsive-img pics" src="/images/infographics/three.jpg" alt ="">
-            <p class="left-align caption3"></p>
-          </div>
-          <div class="slide">
-            <img class="responsive-img pics" src="/images/infographics/four.jpg" alt ="">
-            <p class="left-align caption4"></p>
-          </div>
-          <div class="slide">
-            <img class="responsive-img pics" src="/images/infographics/five.jpg" alt ="">
-            <p class="left-align caption5"></p>
-          </div>
-          <div class="slide">
-            <img class="responsive-img pics" src="/images/infographics/two.jpg" alt ="">
-            <p class="left-align caption6"></p>
-          </div>
+  <div id="LoginForm" style="display: none;">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h4>View your Projects</h4><br />
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">USERNAME</label>
+                    <input type="text" class="form-control" id="loginUserName">
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="login-btn">View</button>
+            </form>
         </div>
-      </div>       <!-- end slideshow -->
+        <div class="col-md-2"></div>
+    </div>
+</div>
 
-    </div> <!-- end bodyContainer --> 
-    <div id="LoginForm" style="display: none;">
-      <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-8">
-              <h4>View your Projects</h4><br />
-              <form>
-                  <div class="form-group">
-                      <label for="exampleInputEmail1">USERNAME</label>
-                      <input type="text" class="form-control" id="loginUserName">
-                  </div>
+</div> <!--end modalContainer-->
 
-                  <button type="submit" class="btn btn-primary" id="login-btn">View</button>
-              </form>
-          </div>
-          <div class="col-md-2"></div>
+<div class="container hiddenNavContainer">
+    <!-- HIDDEN NAVBAR MENU  -->
+  <div class="right hiddenNavMenu" style="display: none">
+    <div class="row col s12 blue-text"> <!--change to none-->
+      <div>
+        <ul>
+          <li><a id="manager" class="logged-in blue-text" href="/manager" style="display: none;">Project Managers</a></li>
+          <li><a class="logged-in blue-text" href="/team" style="display: none;">Team Members</a></li>
+          <li class="logged-in" style="display: none;">
+            <a href="#" class="blue-text modal-trigger" data-target="modal-account">Account</a>
+          </li>
+          <li class="admin" style="display: none;">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-create">Manage User</a>
+          </li>
+          <li class="logged-out" style="display: none;">
+            <a href="#" class="blue-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out" style="display: none;">
+            <a href="#" class="blue-text modal-trigger" data-target="modal-signup">Sign up</a>
+          </li>
+        </ul>
       </div>
-  </div>
+    </div> 
+  </div> 
+</div> <!--end hiddenNavContainer-->
 
-    
+<div class="clearfix"></div>
+
+<!-- MAIN PAGE SLIDESHOW  -->
+<div class="mainContainer">
+  <div id="slideShow">
+  <div class="slide">
+    <img class="responsive-img pics" src="/images/infographics/one.png" alt ="slide1">
+  </div>
+  <div class="slide">
+    <img class="responsive-img pics" src="/images/infographics/two.png" alt ="slide2">
+  </div>
+  <div class="slide">
+    <img class="responsive-img pics" src="/images/infographics/three.png" alt ="slide3">
+  </div>
+  </div> <!-- end slideshow -->
+</div> <!--end mainContainer-->
+
   <!-- MAIN PAGE USER REVIEWS -->
-  <div class="reviews valign-wrapper">
+  <div class="reviews clearfix">
     <div class="col s12 grey-text darken-3 italic center-align review1">"This is the best site to come along in ten years." &nbsp -The New York Times (allegedly)</div>
   </div>
   <div class="reviews valign-wrapper">

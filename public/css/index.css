@@ -69,6 +69,11 @@ nav ul a:active {
 #burgerBackground {
     box-shadow: none;
     z-index: 9998;
+    background: transparent;
+}
+
+#dropdown {
+    margin-top: 1vh;
 }
 
 .dropdown-content {
@@ -110,10 +115,6 @@ img {
 
 /* ************************** END HEADER **************************** */
 
-.bodyContainer {
-        margin-top: 5vh;
-        height: 60vh;
-}
 
 /* ****************** MODALS >>> INDEX PAGE ONLY ********************* */
 
@@ -138,24 +139,22 @@ h4 {
 }
 
 /* ********************* SLIDES  >>> INDEX PAGE ONLY ****************** */
-
-#slideshow {
-    width: 100%;
-    height: 550px;
-    margin: 0 auto;
-    position: relative;
-    /* z-index: 2; */
-    /* display: flex; */
+.mainContainer{
+    height: 50vh;
+    background: transparent;
 }
-.slide {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    position: absolute;
-    /* z-index: 3; */
+
+#slideShow {
     display: flex;
     justify-content: center;
-    align-items: center;
+    width: 100%;
+    background: transparent;
+}
+
+.slide {
+    height: relative;
+    margin: 0 auto; 
+    position: absolute;
 }
 
 /* ******************** REVIEWS  >>> INDEX PAGE ONLY ******************** */
@@ -167,7 +166,7 @@ h4 {
 }
 
 .review1 {
-    padding-top: 4vh;
+    padding-top: 3vh;
 }
 
 .review2 {
