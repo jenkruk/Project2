@@ -1,7 +1,4 @@
 // header space 
-
-
-
 $("#add-task-form").hide();
 
 $(".delete").on('click', function(){
@@ -9,6 +6,56 @@ $(".delete").on('click', function(){
 });
 
 $(document).ready(function(){
+
+$.get("/api/waitingTasks").then(
+  function(waiting){
+    // console.log(waiting);
+    waiting.forEach(function(task){
+      var newLi = $("<li>");
+      newLi.text(task.task_name);
+      $("#waiting").append(newLi);
+    });
+  }
+)
+
+$.get("/api/assignedTasks").then(
+  function(assigned){
+    // console.log(waiting);
+    assigned.forEach(function(task){
+      var newLi = $("<li>");
+      newLi.text(task.task_name);
+      $("#assigned").append(newLi);
+    });
+  }
+)
+
+$.get("/api/activeTasks").then(
+  function(active){
+    // console.log(active);
+    active.forEach(function(task){
+      var newLi = $("<li>");
+      newLi.text(task.task_name);
+      $("#active").append(newLi);
+    });
+  }
+)
+
+$.get("/api/doneTasks").then(
+  function(done){
+    // console.log(done);
+    done.forEach(function(task){
+      var newLi = $("<li>");
+      var del = $("<i class='tiny material-icons'>delete_forever</i>").click(function(){
+        var li = $(this).parent();
+        li.fadeOut(function(){
+        li.remove();
+        });
+        });
+        newLi.append(task.task_name, del);
+        $("#done").append(newLi);
+    });
+  }
+)
 
   $("#del").on('click',function() {
     var li = $(this).parent();

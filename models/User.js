@@ -37,7 +37,11 @@ module.exports = function (sequelize, DataTypes) {
          isEmail: true
        }
      },
-   
+     available: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+      allowNull: false,
+    },
     }, 
   { timestamps: false },
   );

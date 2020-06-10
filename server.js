@@ -17,14 +17,11 @@ var db = require("./models");
 
 // Import routes and give the server access to them.
 
- var router = require("./routes/routes.js");
- app.use(router);
+var routes = require("./routes/routes.js")
+app.use(routes);
 
- var htmlRoutes = require("./routes/htmlroutes")
- app.use(htmlRoutes);
-
- var taskRoutes = require("./routes/taskRoutes.js")
- app.use(taskRoutes);
+var htmlRoutes = require("./routes/htmlRoutes.js");
+app.use(htmlRoutes);
 
 
 // Syncing our sequelize models and then starting our express app
