@@ -1,8 +1,8 @@
 --  header space 
  
 --  Mock Users
- INSERT INTO Users (userName, userfirst_name, last_name, manager, email)
- VALUES ("John", "Smith", true, "js@gmail.com"),
+ INSERT INTO Users (userName, first_name, last_name, manager, email)
+ VALUES ("John", "John", "Smith", true, "js@gmail.com"),
 ("Jane", "Jane", "Jones", true, "jj@gmail.com"),
 ("Julie", "Julie", "Prince", true, "jp@gmail.com"),
 ("Mary", "Mary", "Mack", false, "mem@gmail.com"),
@@ -32,10 +32,10 @@ VALUES ("Models", "waiting", 1, 2),
 ("Set Up Routes", "done", 1, 5),
 ("Set Up Server", "waiting", 2, 6),
 ("User Interface", "assigned", 3, 7),
-("Design", "active", 5, 8)
+("Design", "active", 5, 8);
 
 --  Mock Project Members
  INSERT INTO ProjectMembers (ProjectId, UserId)
- VALUES (7, 2),
-(8, 1),
-(9, 1);
+ VALUES (1, 2),
+(2, 1),
+(3, 1);

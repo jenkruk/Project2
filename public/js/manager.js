@@ -1,5 +1,17 @@
 // header space 
 
+
+$.get("/api/availableTeam").then(
+  function(available){
+    // console.log(available);
+    available.forEach(function(teamMember){
+      var newLi = $("<li>");
+      newLi.text(teamMember.first_name + " " + teamMember.last_name);
+      $("#available").append(newLi);
+    });
+  }
+)
+
 $("#add-form").hide();
 $(".cardFour").hide();
 
