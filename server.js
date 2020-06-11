@@ -21,7 +21,8 @@ var routes = require("./routes/routes.js")
 app.use(routes);
 
 var router = require("./routes/htmlRoutes");
-app.use(router);
+// app.use(router);
+app.use("/", router)
 
 
 // Syncing our sequelize models and then starting our express app
