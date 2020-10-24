@@ -38,4 +38,4 @@ VALUES ("Models", "waiting", 1, 2),
  INSERT INTO ProjectMembers (ProjectId, UserId)
  VALUES (1, 2),
 (2, 1),
-(3, 1);
+(3, 13);

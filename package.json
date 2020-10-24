@@ -20,10 +20,10 @@
   "homepage": "https://github.com/jenkruk/Project2#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mysql2": "^2.1.0",
-    "nodemon": "^2.0.4",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.6",
     "path": "^0.12.7",
-    "sequelize": "^5.21.8"
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"
